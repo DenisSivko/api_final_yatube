@@ -49,8 +49,9 @@ git clone `https://github.com/DenisSivko/api_final_yatube.git`
 `python manage.py runserver`
 
 ## Примеры
-###### Получаем токен
+##### Получаем токен
 Для формирования запросов ответов использована программа [Postman](https://www.postman.com/).
+
 Отправляем POST-запрос на адрес `http://127.0.0.1:8000/api/v1/token/` 
 
 - `username` - указываем имя пользователя.
@@ -61,13 +62,13 @@ git clone `https://github.com/DenisSivko/api_final_yatube.git`
 Токен `refresh` пригодятся для обновления токена.
 Токен `access` используется для аутентификации пользователя.
 
-###### Создаем новый пост
+##### Создаем новый пост
 Отправляем POST-запрос и для аутентификации передаём JWT-токен в заголовке Authorization: Bearer <токен>.
 - Обязательное поле: `text`
 
 ![posts_image](https://i.ibb.co/KLLsfP6/posts.png)
 
-###### Получаем список всех публикаций
+##### Получаем список всех публикаций
 Отправляем GET-запрос на адрес `http://127.0.0.1:8000/api/v1/posts/`.
 
 ![allposts_image](https://i.ibb.co/qpsnphB/allposts.png)
