@@ -5,7 +5,9 @@ from .models import Comment, Follow, Group, Post, User
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='author.username')
+    author = serializers.SlugRelatedField(
+        read_only=True, slug_field='username'
+    )
 
     class Meta:
         fields = ('id', 'text', 'author', 'pub_date')
@@ -13,7 +15,12 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    author = serializers.ReadOnlyField(source='author.username')
+    author = serializers.SlugRelatedField(
+        read_only=True, slug_field='username'
+    )
+    post = serializers.SlugRelatedField(
+        read_only=True, slug_field='id'
+    )
 
     class Meta:
         fields = ('id', 'author', 'post', 'text', 'created')
@@ -42,7 +49,8 @@ class FollowSerializer(serializers.ModelSerializer):
         validators = [
             UniqueTogetherValidator(
                 queryset=Follow.objects.all(),
-                fields=('user', 'following')
+                fields=('user', 'following'),
+                message=('Вы уже подписаны на данного пользователя!')
             )
         ]
 

@@ -1,6 +1,6 @@
 # Финальный проект «API для Yatube»
 ## Описание
-Проект полезен тем, что в первую очередь даёт возможность взаимодействовать с сайтом и предоставляет возможность пользоваться функционалом, не заходя на сайт.
+Проект полезен тем, что в первую очередь даёт возможность взаимодействовать с сайтом и пользоваться функционалом, не заходя на сайт.
 ##### Функционал:
 ###### POSTS
 - Получить список всех публикаций
@@ -39,9 +39,8 @@ git clone `https://github.com/DenisSivko/api_final_yatube.git`
 
 `pip install -r requirements.txt`
 
-Создаем и применяем миграции:
+Применяем миграции:
 
-`python manage.py makemigrations`
 `python manage.py migrate`
 
 Запуск:
@@ -50,7 +49,7 @@ git clone `https://github.com/DenisSivko/api_final_yatube.git`
 
 ## Примеры
 ##### Получаем токен
-Для формирования запросов ответов использована программа [Postman](https://www.postman.com/).
+Для формирования запросов и ответов использована программа [Postman](https://www.postman.com/).
 
 Отправляем POST-запрос на адрес `http://127.0.0.1:8000/api/v1/token/` 
 
@@ -60,6 +59,7 @@ git clone `https://github.com/DenisSivko/api_final_yatube.git`
 ![token_image](https://i.ibb.co/nLcD2Pv/token.png)
 
 Токен `refresh` пригодятся для обновления токена.
+
 Токен `access` используется для аутентификации пользователя.
 
 ##### Создаем новый пост
